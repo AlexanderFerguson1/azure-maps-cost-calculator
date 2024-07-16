@@ -11,11 +11,14 @@ def calculate_cost_per_request(cost_per_1000_transactions, destinations):
 
 st.title("Azure Maps Pricing Calculator")
 st.markdown('For Route Matrix, one transaction is counted for every cell in the matrix.')
-st.markdown('This example we will provide 1 origin and 1 - 700 destinations for our matrix.')
-cost_per_1000_transactions = st.number_input("Cost per 1000 transaction", value=3.57)
+st.markdown('This example we will provide 1 origin which is fixed and 1 - 700 destinations for our matrix.')
+st.divider()
+cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", value=3.57)
+st.divider()
 daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=20)
-number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=100)
-
+st.divider()
+number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=20)
+st.divider()
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 # Calculate costs
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
@@ -35,6 +38,7 @@ if request_cost is not None:
     # Display table
     
     st.header('Cost break down', divider='rainbow')
+    st.markdown('5 day work week is used for calculation')
     st.table(df)
 
     # Prepare data for bar chart
