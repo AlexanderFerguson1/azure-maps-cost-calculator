@@ -11,6 +11,7 @@ def calculate_cost_per_request(cost_per_1000_transactions, destinations):
 
 st.title("Azure Maps Pricing Calculator")
 st.markdown('For Route Matrix, one transaction is counted for every cell in the matrix.')
+st.markdown('If you provided 5 origins and 10 destinations, that would be counted as 50 Routing transactions.')
 st.markdown('This example we will provide 1 origin which is fixed and 1 - 700 destinations for our matrix.')
 st.divider()
 cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", value=3.57)
