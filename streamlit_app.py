@@ -10,9 +10,11 @@ def calculate_cost_per_request(cost_per_1000_transactions, destinations):
     return destinations * (cost_per_1000_transactions / 1000)
 
 st.title("Azure Maps Pricing Calculator")
-cost_per_1000_transactions = st.number_input("Cost per 100 request", value=3.57)
-daily_requests = st.slider("Daily Requests", min_value=1, value=30)
-number_of_destinations = st.slider("Number of Destinations", min_value=1, max_value=700, value=100)
+st.markdown('For Route Matrix, one transaction is counted for every cell in the matrix.')
+st.markdown('This example we will provide 1 origin and 1 - 700 destinations for our matrix.')
+cost_per_1000_transactions = st.number_input("Cost per 1000 transaction", value=3.57)
+daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=20)
+number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=100)
 
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 # Calculate costs
