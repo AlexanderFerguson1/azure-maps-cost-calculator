@@ -10,8 +10,8 @@ def calculate_cost_per_request(destinations):
 
 st.title("Azure Maps Pricing Calculator")
 
-daily_lead_allocations = st.number_input("Daily Lead Allocations", min_value=1, value=30)
-number_of_advisers = st.number_input("Number of Advisers", min_value=1, max_value=700, value=100)
+daily_lead_allocations = st.number_input("Daily Requests", min_value=1, value=30)
+number_of_advisers = st.number_input("Number of origins", min_value=1, max_value=700, value=100)
 
 request_cost = calculate_cost_per_request(number_of_advisers)
 if request_cost is not None:
