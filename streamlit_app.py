@@ -7,7 +7,7 @@ def calculate_cost_per_request(cost_per_1000_transactions, destinations):
     if destinations > 700:
         st.error("Origins per request cannot be greater than 700")
         return None
-    return destinations * (cost_per_1000_transactions / 1000)
+    return cost_per_1000_transactions * (destinations / 1000)
 
 st.title("Azure Maps Pricing Calculator")
 st.markdown('For Route Matrix, one transaction is counted for every cell in the matrix.')
@@ -22,7 +22,6 @@ number_of_destinations = st.slider("Number of Destinations (transactions) per re
 st.divider()
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 # Calculate costs
-request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 if request_cost is not None:
     daily_cost = request_cost * daily_requests
     weekly_cost = daily_cost * 5
