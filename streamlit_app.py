@@ -16,16 +16,16 @@ st.markdown('This example we will provide 1 origin which is fixed and 1 - 700 de
 st.divider()
 cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", value=3.57)
 st.divider()
-daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=20)
+daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=60, max_value=1000)
 st.divider()
-number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=20)
+number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=30)
 st.divider()
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 # Calculate costs
 if request_cost is not None:
     daily_cost = request_cost * daily_requests
     weekly_cost = daily_cost * 5
-    monthly_cost = weekly_cost * 4.345
+    monthly_cost = weekly_cost * 4.34524
     yearly_cost = weekly_cost * 52
 
     # Prepare data for display
