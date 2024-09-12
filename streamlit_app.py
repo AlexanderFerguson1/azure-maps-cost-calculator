@@ -14,7 +14,7 @@ st.markdown('For Route Matrix, one transaction is counted for every cell in the 
 st.markdown('If you provided 5 origins and 10 destinations, that would be counted as 50 Routing transactions.')
 st.markdown('This example we will provide 1 origin which is fixed and 1 - 700 destinations for our matrix.')
 st.divider()
-cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", value=3.57)
+cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", value=3.41)
 st.divider()
 daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=60, max_value=1000)
 st.divider()
