@@ -18,7 +18,7 @@ cost_per_1000_transactions = st.number_input("Cost per 1000 transactions (£)", 
 st.divider()
 daily_requests = st.slider("Daily Requests made to azure routing api", min_value=1, value=60, max_value=1000)
 st.divider()
-number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=30)
+number_of_destinations = st.slider("Number of Destinations (transactions) per request", min_value=1, max_value=700, value=20)
 st.divider()
 request_cost = calculate_cost_per_request(cost_per_1000_transactions, number_of_destinations)
 # Calculate costs
@@ -43,7 +43,7 @@ if request_cost is not None:
 
     # Prepare data for bar chart
     chart_data = {
-        'Time Period': ['Daily', 'Weekly', 'Monthly', 'Yearly'],
+        'Time Period': ['A - Daily', 'B - Weekly', 'C - Monthly', 'D - Yearly'],
         'Cost (£)': [daily_cost, weekly_cost, monthly_cost, yearly_cost]
     }
     chart_df = pd.DataFrame(chart_data)
